@@ -4,11 +4,6 @@ import java.util.Scanner;
 
 public class Greeter {
 
-    private boolean isAdvanced;
-    private boolean hasUpperCase;
-    private boolean hasSpecials;
-    private int passwordLength;
-    private int optionChosen;
     private Scanner clientInput;
 
 
@@ -28,7 +23,9 @@ public class Greeter {
             optionChosen = clientInput.nextLine();
 
             if (optionChosen.equals("1")) {
-                System.out.println("Go to pass generator");
+                PasswordGenerator gen = new PasswordGenerator(clientInput);
+                gen.getInput();
+                gen.printOptions();
             } else if (optionChosen.equals("2")) {
                 System.out.println("Go to pass checker");
             } else if (optionChosen.equals("3")){
@@ -58,15 +55,10 @@ public class Greeter {
     private void printMenu() {
         System.out.println(
             " Please choose an option by inputting a number: " +
-            "\n 1 - Generate a password" +
+            "\n 1 - Generate password(s)" +
             "\n 2 - Check the strength of a password" +
             "\n 3 - Exit the program"
         );
     }
-
-    private void buildPassword() {
-
-    }
-
 
 }
