@@ -8,8 +8,8 @@ public class Greeter {
     private Scanner clientInput;
 
 
-    public Greeter(Scanner scanner) {
-        this.clientInput = scanner;
+    public Greeter() {
+        this.clientInput = new Scanner(System.in);
     }
 
     public void loop() {
@@ -72,7 +72,8 @@ public class Greeter {
             boolean hasSpecials = yesNoQuestion("Would you like your password to include special characters [Y / N]? ");
             int passwordLength = numberQuestion("How long would you like the password to be? Enter a number: ");
             int numOfPasswords = numberQuestion("How many passwords would you like generated? Enter a number: ");
-        } else { // A simple password is desired
+            Generator complexGen = new Generator(hasUpperCase, hasNumbers, hasSpecials, passwordLength, numOfPasswords);
+        } else {
             System.out.println("You've chosen to generate a simple password of English words strung together.");
             boolean useCommonWords = yesNoQuestion("Would you like your password to use common English words?");
             int numOfWords = numberQuestion("How many words would you like in your password?");

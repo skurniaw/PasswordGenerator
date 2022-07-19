@@ -1,34 +1,50 @@
 package org.skurniaw;
 
+import java.lang.Math;
+
 public class Generator {
 
-    private boolean isAdvanced;
     private boolean hasUpperCase;
     private boolean hasNumbers;
     private boolean hasSpecials;
+    private boolean useCommonWords;
+    private int numOfWords;
     private int passwordLength;
     private int numOfPasswords;
 
-    public Generator () {
-
+    public Generator(boolean hasUpperCase, boolean hasNumbers, boolean hasSpecials, int pwLength, int numOfPasswords) {
+        this.hasUpperCase = hasUpperCase;
+        this.hasNumbers = hasNumbers;
+        this.hasSpecials = hasSpecials;
+        this.passwordLength = pwLength;
+        this.numOfPasswords = numOfPasswords;
+        buildComplexPass();
     }
 
-    // Need to error-proof to re-ask questions if incorrect input is given.
+    public Generator(boolean useCommonWords, int numOfWords, int numOfPasswords) {
+        this.useCommonWords = useCommonWords;
+        this.numOfWords = numOfWords;
+        this.numOfPasswords = numOfPasswords;
+        buildEZPass();
+    }
 
+    private String buildEZPass() {
 
-    public String buildPasswords() {
         return "";
     }
-/*
 
-    public void printOptions() {
-        System.out.println("isAdvanced: " + isAdvanced);
-        System.out.println("hasUppercase: " + hasUpperCase);
-        System.out.println("hasNumbers: " + hasNumbers);
-        System.out.println("hasSpecials: " + hasSpecials);
-        System.out.println("pass length: " + passwordLength);
-        System.out.println("desired # of pws: " + numOfPasswords);
+    private void buildComplexPass() {
+        String charSet = new CharSet(hasUpperCase, hasNumbers, hasSpecials).getChars();
+        System.out.println(charSet);
+
+        for (int i = 0; i < numOfPasswords; i++) {
+            String pass = "";
+            for (int j = 0; j < passwordLength; j++) {
+                pass += charSet.charAt((int) (Math.random() * charSet.length()));
+            }
+            System.out.println("Password #" + (i + 1) + ": " + pass);
+        }
+
     }
-*/
 
 }

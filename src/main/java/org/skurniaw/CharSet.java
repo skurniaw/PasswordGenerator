@@ -1,6 +1,6 @@
 package org.skurniaw;
 
-public class CharSetBuilder {
+public class CharSet {
 
     private final String LOWERCASE_ALPHAS = "abcdefghijklmnopqrstuvwxyz";
     private final String UPPERCASE_ALPHAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -9,7 +9,7 @@ public class CharSetBuilder {
 
     private StringBuilder allowedChars;
 
-    public CharSetBuilder CharSetBuilder(boolean hasUpperCase, boolean hasNumbers, boolean hasSpecials) {
+    public CharSet(boolean hasUpperCase, boolean hasNumbers, boolean hasSpecials) {
 
         allowedChars = new StringBuilder();
         allowedChars.append(LOWERCASE_ALPHAS);
@@ -23,8 +23,6 @@ public class CharSetBuilder {
         if (hasSpecials) {
             allowedChars.append(SPECIAL_CHARS);
         }
-
-        return this;
 
     }
 
