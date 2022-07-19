@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Initial commit">
+    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Begin building PasswordGenerator class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/Greeter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/PasswordGenerator.java" afterDir="false" />
@@ -36,7 +36,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
   <component name="RunManager">
@@ -75,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658128523253</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Begin building PasswordGenerator class">
+      <created>1658155718931</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658155718931</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,6 +99,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Begin building PasswordGenerator class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begin building PasswordGenerator class" />
   </component>
 </project>

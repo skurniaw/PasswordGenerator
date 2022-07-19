@@ -1,5 +1,6 @@
 package org.skurniaw;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Greeter {
@@ -23,20 +24,18 @@ public class Greeter {
             optionChosen = clientInput.nextLine();
 
             if (optionChosen.equals("1")) {
-                PasswordGenerator gen = new PasswordGenerator(clientInput);
-                gen.getInput();
-                gen.printOptions();
+                buildPassword();
             } else if (optionChosen.equals("2")) {
-                System.out.println("Go to pass checker");
+                // go to password checker.
             } else if (optionChosen.equals("3")){
-                System.out.println("Close out the program");
+                System.out.println("Closing out the program...");
             } else { // it's none of them
-                System.out.println("Please choose a valid option!");
+                System.out.println(" Please choose a valid option!");
             }
 
         }
 
-        System.out.println("PROGRAM EXITED");
+        System.out.println("*** PROGRAM EXITED ***");
 
     }
 
@@ -59,6 +58,72 @@ public class Greeter {
             "\n 2 - Check the strength of a password" +
             "\n 3 - Exit the program"
         );
+    }
+
+    private void buildPassword() {
+
+        boolean isAdvanced = yesNoQuestion("Would you like to generate an advanced password [Y / N]? ");
+
+        if (isAdvanced) {
+            System.out.println("You've chosen to generate a complex password. You'll have to answer some additional \n" +
+                    "questions.");
+            boolean hasUpperCase = yesNoQuestion("Would you like your password to include uppercase letters [Y / N]? ");
+            boolean hasNumbers = yesNoQuestion("Would you like your password to include numbers [Y / N]? ");
+            boolean hasSpecials = yesNoQuestion("Would you like your password to include special characters [Y / N]? ");
+            int passwordLength = numberQuestion("How long would you like the password to be? Enter a number: ");
+            int numOfPasswords = numberQuestion("How many passwords would you like generated? Enter a number: ");
+        } else { // A simple password is desired
+            System.out.println("You've chosen to generate a simple password of English words strung together.");
+            boolean useCommonWords = yesNoQuestion("Would you like your password to use common English words?");
+            int numOfWords = numberQuestion("How many words would you like in your password?");
+            int numOfPasswords = numberQuestion("How many passwords would you like generated? Enter a number: ");
+
+        }
+
+    }
+
+    private boolean yesNoQuestion(String q) {
+        boolean validInput = false;
+        String errorMsg = "Something went wrong... Please input a valid answer (Y or N).";
+
+        String ans = "";
+        System.out.print(q);
+
+        while (!validInput) {
+            ans = clientInput.nextLine().toLowerCase();
+
+            if (ans.equals("y") || ans.equals("n")) {
+                validInput = true;
+            } else {
+                System.out.println(errorMsg + "\n");
+            }
+        }
+
+        return ans.equals("y");
+    }
+
+    private int numberQuestion(String q) {
+        boolean validInput = false;
+        String errorMsg = "Something went wrong... please input a valid number greater than 0.";
+
+        int ans = -1;
+
+        while (!validInput) {
+            System.out.print(q);
+            try {
+                ans = clientInput.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println(errorMsg);
+                clientInput.next();
+            } finally {
+                if (ans > 0) {
+                    validInput = true;
+                }
+            }
+        }
+
+        return ans;
+
     }
 
 }
