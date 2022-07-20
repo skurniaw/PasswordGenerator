@@ -20,7 +20,6 @@ public class Greeter {
         while (!optionChosen.equals("3")) {
 
             printMenu();
-
             optionChosen = clientInput.nextLine();
 
             if (optionChosen.equals("1")) {
@@ -29,10 +28,10 @@ public class Greeter {
                 // go to password checker.
             } else if (optionChosen.equals("3")){
                 System.out.println("Closing out the program...");
+                clientInput.close();
             } else { // it's none of them
                 System.out.println(" Please choose a valid option!");
             }
-
         }
 
         System.out.println("*** PROGRAM EXITED ***");
@@ -58,6 +57,7 @@ public class Greeter {
             "\n 2 - Check the strength of a password" +
             "\n 3 - Exit the program"
         );
+        System.out.print("Enter a choice...: ");
     }
 
     private void buildPassword() {
@@ -70,15 +70,15 @@ public class Greeter {
             boolean hasUpperCase = yesNoQuestion("Would you like your password to include uppercase letters [Y / N]? ");
             boolean hasNumbers = yesNoQuestion("Would you like your password to include numbers [Y / N]? ");
             boolean hasSpecials = yesNoQuestion("Would you like your password to include special characters [Y / N]? ");
-            int passwordLength = numberQuestion("How long would you like the password to be? Enter a number: ");
+            int passwordLength = numberQuestion("How long would you like the password to be? Enter a number of characters: ");
             int numOfPasswords = numberQuestion("How many passwords would you like generated? Enter a number: ");
             Generator complexGen = new Generator(hasUpperCase, hasNumbers, hasSpecials, passwordLength, numOfPasswords);
         } else {
             System.out.println("You've chosen to generate a simple password of English words strung together.");
-            boolean useCommonWords = yesNoQuestion("Would you like your password to use common English words?");
-            int numOfWords = numberQuestion("How many words would you like in your password?");
+            boolean useCommonWords = yesNoQuestion("Would you like your password to use common English words? ");
+            int numOfWords = numberQuestion("How many words would you like in your password? ");
             int numOfPasswords = numberQuestion("How many passwords would you like generated? Enter a number: ");
-
+            Generator simpleGen = new Generator(useCommonWords, numOfWords, numOfPasswords);
         }
 
     }
@@ -86,17 +86,16 @@ public class Greeter {
     private boolean yesNoQuestion(String q) {
         boolean validInput = false;
         String errorMsg = "Something went wrong... Please input a valid answer (Y or N).";
-
         String ans = "";
-        System.out.print(q);
 
         while (!validInput) {
+            System.out.print(q);
             ans = clientInput.nextLine().toLowerCase();
 
             if (ans.equals("y") || ans.equals("n")) {
                 validInput = true;
             } else {
-                System.out.println(errorMsg + "\n");
+                System.out.println(errorMsg);
             }
         }
 
@@ -106,7 +105,6 @@ public class Greeter {
     private int numberQuestion(String q) {
         boolean validInput = false;
         String errorMsg = "Something went wrong... please input a valid number greater than 0.";
-
         int ans = -1;
 
         while (!validInput) {
@@ -119,6 +117,7 @@ public class Greeter {
             } finally {
                 if (ans > 0) {
                     validInput = true;
+                    clientInput.nextLine();
                 }
             }
         }

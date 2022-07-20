@@ -1,6 +1,8 @@
 package org.skurniaw;
 
+import java.io.FileNotFoundException;
 import java.lang.Math;
+import java.util.List;
 
 public class Generator {
 
@@ -28,14 +30,22 @@ public class Generator {
         buildEZPass();
     }
 
-    private String buildEZPass() {
+    private void buildEZPass() {
+        List<String> wordList = new WordSet(useCommonWords).getWordSet();
+        for (int i = 0; i < numOfPasswords; i++) {
+            String pass = "";
+            for (int j = 0; j < numOfWords; j++) {
+                pass += wordList.get((int) (Math.random() * wordList.size())) + "_";
+            }
 
-        return "";
+            pass = pass.substring(0, pass.length() - 1);
+
+            System.out.println("Password #" + (i + 1) + ": " + pass);
+        }
     }
 
     private void buildComplexPass() {
         String charSet = new CharSet(hasUpperCase, hasNumbers, hasSpecials).getChars();
-        System.out.println(charSet);
 
         for (int i = 0; i < numOfPasswords; i++) {
             String pass = "";

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Move clientInput back to Greeter. Add error-proofing to client input.">
+    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Draft CharSet class.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/WordSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/CharSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/CharSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/Generator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/Greeter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,19 +32,24 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2C6Ji4skPyz5xHEScc6OQQzqSNL" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.skurniaw.Main" />
@@ -96,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658195897950</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Draft CharSet class.">
+      <created>1658215008364</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658215008364</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +125,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Begin building PasswordGenerator class" />
     <MESSAGE value="Move clientInput back to Greeter. Add error-proofing to client input." />
-    <option name="LAST_COMMIT_MESSAGE" value="Move clientInput back to Greeter. Add error-proofing to client input." />
+    <MESSAGE value="Draft CharSet class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Draft CharSet class." />
   </component>
 </project>
