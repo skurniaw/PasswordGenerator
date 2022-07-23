@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Draft CharSet class.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/WordSet.java" afterDir="false" />
+    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Add functionality to generate simple and complex passwords.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/Generator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/Greeter.java" afterDir="false" />
     </list>
@@ -39,17 +39,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.skurniaw.Main" />
@@ -107,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658215008364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add functionality to generate simple and complex passwords.">
+      <created>1658289694640</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658289694640</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,6 +133,7 @@
     <MESSAGE value="Begin building PasswordGenerator class" />
     <MESSAGE value="Move clientInput back to Greeter. Add error-proofing to client input." />
     <MESSAGE value="Draft CharSet class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Draft CharSet class." />
+    <MESSAGE value="Add functionality to generate simple and complex passwords." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add functionality to generate simple and complex passwords." />
   </component>
 </project>
