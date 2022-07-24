@@ -2,12 +2,18 @@ package org.skurniaw;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
 
 public class MainDiscord {
 
     public static void main(String[] args) {
         try {
-            JDA jda = JDABuilder.createDefault("MTAwMDI1NTQwOTY4MjEzMzAyMg.GfxWTw.-J9C1IfT8bmug145XKlUeXiywQiiT_At8u09sY")
+            JSONObject cfg = (JSONObject) new JSONParser().parse(new FileReader("cfg.json"));
+
+            JDA jda = JDABuilder.createDefault((String) cfg.get("botToken"))
                     .addEventListeners(new PassGenListener())
                     .build();
         } catch (Exception e) {
