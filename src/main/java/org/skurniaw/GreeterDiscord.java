@@ -34,15 +34,13 @@ public class GreeterDiscord {
     };
 
     public GreeterDiscord() {
-        this.state = State.WELCOME;
         this.ansQueue = new LinkedList<>();
+        response = welcomeString() + "\n" + menuString();
+        this.state = State.MAIN_MENU;
     }
 
     public void takeCommand(String msg) {
-        if (state == State.WELCOME) {
-            response = welcomeString() + "\n" + menuString();
-            state = State.MAIN_MENU;
-        } else if (state == State.MAIN_MENU) {
+        if (state == State.MAIN_MENU) {
             switch (msg) {
                 case "1" -> {
                     state = State.ASK_ADVANCED;
@@ -53,6 +51,7 @@ public class GreeterDiscord {
                     state = State.MAIN_MENU;
                 }
                 case "3" -> state = State.CLOSE;
+                default -> response = "Something went wrong... please try again.";
             }
         } else if (state == State.ASK_ADVANCED) {
             if (checkYesNo(msg)) {
@@ -60,14 +59,13 @@ public class GreeterDiscord {
                 numOfQs = isAdvanced ? complexQuestionList.size() : simpleQuestionList.size();
                 qNum = 0;
                 state = State.ASK_QUESTIONS;
-
                 response = isAdvanced ? complexQuestionList.get(qNum) : simpleQuestionList.get(qNum);
             } else {
                 response = "Something went wrong... Please input a valid answer (Y or N). \n \n" + response;
             }
         } else if (state == State.ASK_QUESTIONS) {
             // check if input is good
-            if (qNum > numOfQs) {
+            if (qNum == numOfQs) {
                 buildPass();
                 state = State.MAIN_MENU;
             } else if (isAdvanced) {
@@ -79,7 +77,10 @@ public class GreeterDiscord {
                     ansQueue.add(msg);
                     qNum++;
                 }
-                response = complexQuestionList.get(qNum);
+
+                if (qNum < numOfQs) {
+                    response = complexQuestionList.get(qNum);
+                }
 
             } else {
                 if (qNum < 1 && checkYesNo(msg)) {
@@ -89,13 +90,18 @@ public class GreeterDiscord {
                     ansQueue.add(msg);
                     qNum++;
                 }
-                response = simpleQuestionList.get(qNum);
+
+                if (qNum < numOfQs) {
+                    response = simpleQuestionList.get(qNum);
+                }
             }
         }
     }
 
     public String getResponse() {
-        return response;
+        return
+            "``` \n" + response +
+            "\n ```";
     }
 
     private String welcomeString() {
@@ -115,7 +121,7 @@ public class GreeterDiscord {
             2 - View tips to build a strong password
             3 - Exit the program
             
-            Enter a choice:""" + " ";
+            Enter a choice:""";
     }
 
     private String tipsString() {
@@ -126,12 +132,11 @@ public class GreeterDiscord {
             * Password should NOT contain any of the user's personal information (like address or phone number)
             * Password should NOT contain any consecutive letters or numbers.
             * Password should NOT contain the word 'password' or a single character or number repeated.
-            
-            Hit ENTER to return to the main menu.""" + " \n  ";
+            """;
     }
 
     private boolean checkYesNo(String s) {
-        return s.toLowerCase().equals("y") || s.toLowerCase().equals("n");
+        return s.equalsIgnoreCase("y") || s.equalsIgnoreCase("n");
     }
 
     private boolean checkValidInteger(String s) {

@@ -67,7 +67,10 @@ public class GeneratorDiscord {
     }
 
     public String toString() {
-        return this.answer;
+        return
+                "*** PASSWORDS *** \n \n" +
+                this.answer +
+                "\n ***PASSWORDS*** \n";
     }
 
 }

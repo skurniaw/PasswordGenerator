@@ -2,6 +2,7 @@ package org.skurniaw;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -15,9 +16,11 @@ public class MainDiscord {
 
             JDA jda = JDABuilder.createDefault((String) cfg.get("botToken"))
                     .addEventListeners(new PassGenListener())
+                    .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                     .build();
         } catch (Exception e) {
             System.out.println("MainDiscord error: " + e.toString());
+
         }
 
     }

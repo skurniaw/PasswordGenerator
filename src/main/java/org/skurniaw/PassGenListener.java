@@ -13,10 +13,9 @@ public class PassGenListener extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        System.out.println("onMessageReceived triggered!");
+
         Message msg = event.getMessage();
         String msgString = msg.getContentRaw();
-        System.out.println("msgString: " + msgString);
         MessageChannel msgChannel = event.getChannel();
 
         if (!msgString.startsWith(DISCORD_COMMAND_TOKEN)) {
@@ -24,12 +23,24 @@ public class PassGenListener extends ListenerAdapter {
             return;
         }
 
-        msgString = msgString.substring(1, msgString.length() - 1);
+        msgString = msgString.substring(1, msgString.length());
+        System.out.println("trimmed string: " + msgString);
 
         if (msgString.equalsIgnoreCase("passgen")) {
             this.greeter = new GreeterDiscord();
+            System.out.println("New Password Generator instantiated!");
+            msgChannel.sendMessage(greeter.getResponse()).queue();
         } else {
-            greeter.takeCommand(msgString);
+            if (greeter != null) {
+                greeter.takeCommand(msgString);
+                System.out.println(greeter.getResponse() + "\n \n");
+                try {
+                    msgChannel.sendMessage(greeter.getResponse()).queue();
+                } catch (IllegalArgumentException e) {
+                    msgChannel.sendMessage("``` Message was over 2000 characters, restarting... ```").queue();
+                }
+
+            }
         }
 
 
