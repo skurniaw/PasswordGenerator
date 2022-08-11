@@ -70,7 +70,7 @@ public class GeneratorDiscord {
         return
                 "*** PASSWORDS *** \n \n" +
                 this.answer +
-                "\n ***PASSWORDS*** \n";
+                "\n *** PASSWORDS *** \n \n";
     }
 
 }

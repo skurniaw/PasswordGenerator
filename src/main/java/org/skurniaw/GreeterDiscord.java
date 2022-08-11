@@ -40,59 +40,57 @@ public class GreeterDiscord {
     }
 
     public void takeCommand(String msg) {
-        if (state == State.MAIN_MENU) {
-            switch (msg) {
-                case "1" -> {
-                    state = State.ASK_ADVANCED;
-                    response = "Would you like to generate a complex password [Y / N]? ";
+        switch (state) {
+            case MAIN_MENU -> {
+                switch (msg) {
+                    case "1" -> {
+                        state = State.ASK_ADVANCED;
+                        response = "Would you like to generate a complex password [Y / N]? ";
+                    }
+                    case "2" -> {
+                        response = tipsString() + "\n" + menuString();
+                        state = State.MAIN_MENU;
+                    }
+                    case "3" -> state = State.CLOSE;
+                    default -> response = "Something went wrong... please try again.";
                 }
-                case "2" -> {
-                    response = tipsString() + "\n" + menuString();
+            }
+            case ASK_ADVANCED -> {
+                if (checkYesNo(msg)) {
+                    isAdvanced = msg.equals("y");
+                    numOfQs = isAdvanced ? complexQuestionList.size() : simpleQuestionList.size();
+                    qNum = 0;
+                    state = State.ASK_QUESTIONS;
+                    response = isAdvanced ? complexQuestionList.get(qNum) : simpleQuestionList.get(qNum);
+                } else {
+                    response = "Something went wrong... Please input a valid answer (Y or N). \n \n" + response;
+                }
+            }
+            case ASK_QUESTIONS -> {
+                // check if input is good
+                if (isAdvanced) {
+                    if (qNum < 3 && checkYesNo(msg)) {
+                        ansQueue.add(msg);
+                        qNum++;
+                    } else if (checkValidInteger(msg)) {
+                        ansQueue.add(msg);
+                        qNum++;
+                    }
+                } else {
+                    if (qNum < 1 && checkYesNo(msg)) {
+                        ansQueue.add(msg);
+                        qNum++;
+                    } else if (checkValidInteger(msg)) {
+                        ansQueue.add(msg);
+                        qNum++;
+                    }
+                }
+
+                if (qNum < numOfQs) {
+                    response = isAdvanced ? complexQuestionList.get(qNum) : simpleQuestionList.get(qNum);
+                } else {
+                    buildPass();
                     state = State.MAIN_MENU;
-                }
-                case "3" -> state = State.CLOSE;
-                default -> response = "Something went wrong... please try again.";
-            }
-        } else if (state == State.ASK_ADVANCED) {
-            if (checkYesNo(msg)) {
-                isAdvanced = msg.equals("y");
-                numOfQs = isAdvanced ? complexQuestionList.size() : simpleQuestionList.size();
-                qNum = 0;
-                state = State.ASK_QUESTIONS;
-                response = isAdvanced ? complexQuestionList.get(qNum) : simpleQuestionList.get(qNum);
-            } else {
-                response = "Something went wrong... Please input a valid answer (Y or N). \n \n" + response;
-            }
-        } else if (state == State.ASK_QUESTIONS) {
-            // check if input is good
-            if (qNum == numOfQs) {
-                buildPass();
-                state = State.MAIN_MENU;
-            } else if (isAdvanced) {
-
-                if (qNum < 3 && checkYesNo(msg)) {
-                    ansQueue.add(msg);
-                    qNum++;
-                } else if (checkValidInteger(msg)) {
-                    ansQueue.add(msg);
-                    qNum++;
-                }
-
-                if (qNum < numOfQs) {
-                    response = complexQuestionList.get(qNum);
-                }
-
-            } else {
-                if (qNum < 1 && checkYesNo(msg)) {
-                    ansQueue.add(msg);
-                    qNum++;
-                } else if (checkValidInteger(msg)) {
-                    ansQueue.add(msg);
-                    qNum++;
-                }
-
-                if (qNum < numOfQs) {
-                    response = simpleQuestionList.get(qNum);
                 }
             }
         }

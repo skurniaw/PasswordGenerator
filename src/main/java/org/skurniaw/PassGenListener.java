@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class PassGenListener extends ListenerAdapter {
 
-    private static final String DISCORD_COMMAND_TOKEN = "?";
+    private static final String DISCORD_COMMAND_TOKEN = "!";
 
     private GreeterDiscord greeter;
 
@@ -19,7 +19,7 @@ public class PassGenListener extends ListenerAdapter {
         MessageChannel msgChannel = event.getChannel();
 
         if (!msgString.startsWith(DISCORD_COMMAND_TOKEN)) {
-            System.out.println("command entered that didn't start with ?");
+            System.out.println("command entered that didn't start with " + DISCORD_COMMAND_TOKEN);
             return;
         }
 

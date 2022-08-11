@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Move bot settings to json">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="1fe12cb0-fe25-407a-9da5-32f5da66ad90" name="Changes" comment="Fix repeat of last question before presenting passwords.">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/GeneratorDiscord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/GeneratorDiscord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/GreeterDiscord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/GreeterDiscord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/MainDiscord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/MainDiscord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/skurniaw/PassGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/skurniaw/PassGenListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
